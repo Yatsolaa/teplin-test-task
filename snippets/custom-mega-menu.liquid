@@ -1,11 +1,46 @@
+{% comment %}
+  Renders a megamenu for the header.
 
+  Usage:
+  {% render 'custom-mega-menu', menu: section.settings.menu %}
+  menu - linklist object is required
+{% endcomment %}
+
+{% assign menu_links = linklists[menu].links %}
 
 <c-mega-menu class="c-mega-menu">
-  {% if menu != blank %}
+  {% if menu_links != blank %}
     <ul class="c-mega-menu__first-level-links">
-      {% for link in menu %}
-        
+      {% for link in menu_links %}
+        <li class="c-mega-menu__link {% if link.levels > 0 %}js-mega-menu__trigger{% endif %}" data-link-handle="{{ link.handle }}">{{ link.title }}</li>
       {% endfor %}
     </ul>
+
+  <div class="c-mega-menu__modal js-mega-menu__modal">
+    {% for link in menu_links %}
+      {% if link.levels > 0 %}
+        <div class="c-mega-menu__tab page-width js-mega-menu__tab" data-link-handle="{{ link.handle }}">
+          {% for link_second in link.links %}
+            <div class="c-mega-menu__column">
+              <div class="c-mega-menu__title">{{ link_second.title }}</div>
+              <ul class="c-mega-menu__list">
+                {% if link_second.levels > 0 %}
+                  {% assign third_levelLinks = link_second.links | sort: "title" %}
+                  {% for link_third in third_levelLinks %}
+                    <li class="c-mega-menu__list-item">
+                      <a href="{{ link_third.url }}">{{ link_third.title }}</a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+                <li class="c-mega-menu__list-item c-mega-menu__list-item--italic">
+                  <a href="{{ link_second.url }}">Shop all</a>
+                </li>
+              </ul>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
   {% endif %}
 </c-mega-menu>
