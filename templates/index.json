@@ -125,11 +125,67 @@
         "button": "SHOP ALL",
         "button_url": "shopify://collections/all"
       }
+    },
+    "testimonials_slider_WtRp66": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "slide_KgjEFT": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-03-20_19.25.49_-_A_professional_portrait_of_John_Doe_a_Caucasian_man_in_his_mid-30s_with_short_brown_hair_and_a_friendly_smile._He_is_wearing_a_business_casual_shirt.webp",
+            "quote": "<p>This product exceeded my expectations! The quality and customer service are top-notch.</p>",
+            "name": "John Doe"
+          }
+        },
+        "slide_whbQjE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-03-20_19.25.50_-_A_professional_portrait_of_Sarah_Smith_a_young_woman_with_long_blonde_hair_wearing_casual_business_attire_and_smiling_warmly._She_looks_approachable.webp",
+            "quote": "<p>I've been using this for months now, and I can't imagine my life without it. Highly recommended!</p>",
+            "name": "Sarah Smith"
+          }
+        },
+        "slide_JnxACp": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-03-20_19.25.52_-_A_professional_portrait_of_Michael_Johnson_an_African_American_man_in_his_40s_wearing_glasses_and_a_smart-casual_outfit._He_has_a_confident_and_frie.webp",
+            "quote": "<p>Great experience! The shipping was fast, and the product works exactly as advertised.</p>",
+            "name": "Michael Johnson"
+          }
+        },
+        "slide_thFKKE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-03-20_19.25.53_-_A_professional_portrait_of_Emily_Brown_a_young_woman_with_short_dark_hair_wearing_a_stylish_dress_and_smiling_warmly._She_looks_cheerful_and_approac.webp",
+            "quote": "<p>Absolutely love it! The best purchase I've made this year.</p>",
+            "name": "Emily Brown"
+          }
+        },
+        "slide_eedWii": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-03-20_19.25.54_-_A_professional_portrait_of_Daniel_Carter_a_middle-aged_man_with_salt-and-pepper_hair_wearing_a_polo_shirt_and_smiling_confidently._He_looks_approach.webp",
+            "quote": "<p>Fantastic quality and great customer service. Will buy again!</p>",
+            "name": "Daniel Carter"
+          }
+        }
+      },
+      "block_order": [
+        "slide_KgjEFT",
+        "slide_whbQjE",
+        "slide_JnxACp",
+        "slide_thFKKE",
+        "slide_eedWii"
+      ],
+      "settings": {
+        "title": "Testimonials"
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "featured_products_NkDawq"
+    "featured_products_NkDawq",
+    "testimonials_slider_WtRp66"
   ]
 }

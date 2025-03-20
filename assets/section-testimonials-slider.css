@@ -1,0 +1,119 @@
+.s-testimonials-slider {
+  display: block;
+  padding: 50px 0;
+}
+@media screen and (min-width: 768px) {
+  .s-testimonials-slider {
+    padding: 100px 0;
+  }
+}
+.s-testimonials-slider__title {
+  margin: 0;
+  color: #2B2424;
+  text-align: center;
+  font-family: var(--font-manrope);
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 109.3%;
+}
+@media screen and (min-width: 768px) {
+  .s-testimonials-slider__title {
+    font-size: 64px;
+  }
+}
+.s-testimonials-slider__container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1500px;
+}
+.s-testimonials-slider__slider {
+  padding: 0 45px;
+  position: relative;
+  margin: 40px 0 0;
+}
+@media screen and (min-width: 768px) {
+  .s-testimonials-slider__slider {
+    margin: 70px 0 0;
+  }
+}
+.s-testimonials-slider__slider, .s-testimonials-slider__slider .flickity-viewport:focus-visible, .s-testimonials-slider__slider .flickity-slider:focus-visible {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.s-testimonials-slider__slide {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .s-testimonials-slider__slide {
+    max-width: 250px;
+    margin-right: 150px;
+  }
+}
+.s-testimonials-slider__slide-image {
+  max-width: 100px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.s-testimonials-slider__slide-image > img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.s-testimonials-slider__arrow {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
+.s-testimonials-slider__arrow > svg {
+  width: 30px;
+}
+.s-testimonials-slider__arrow--prev {
+  left: 0;
+}
+.s-testimonials-slider__arrow--prev > svg {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.s-testimonials-slider__arrow--next {
+  right: 0;
+}
+.s-testimonials-slider__arrow.is-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.s-testimonials-slider__quote p {
+  text-align: center;
+}
+.s-testimonials-slider__name {
+  color: #685A5C;
+  font-family: "Tiempos Headline";
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}

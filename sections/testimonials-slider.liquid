@@ -1,0 +1,89 @@
+{{ 'section-testimonials-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-testimonials-slider.js' | asset_url }}" defer></script>
+
+{% liquid
+  assign testimonials = section.blocks | where: 'type', 'slide'
+%}
+ 
+<s-testimonials-slider class="s-testimonials-slider">
+  <div class="s-testimonials-slider__container">
+    {% if section.settings.title %}
+      <h2 class="s-testimonials-slider__title">{{ section.settings.title }}</h2>
+    {% endif %}
+  
+    <div class="s-testimonials-slider__slider js-testimonials-slider__slider">
+  
+      <div class="s-testimonials-slider__arrow s-testimonials-slider__arrow--prev js-arrow-prev">
+        {% render 'icon-arrow' %}
+      </div>
+      <div class="s-testimonials-slider__arrow s-testimonials-slider__arrow--next js-arrow-next">
+        {% render 'icon-arrow' %}
+      </div>
+  
+      {% if testimonials.size > 0 %}
+        {% for block in testimonials %}
+          <div class="s-testimonials-slider__slide js-testimonials-slider__slide">
+            {% if block.settings.image %}
+              <div class="s-testimonials-slider__slide-image">
+                {% render 'image', image: block.settings.image %}
+              </div>
+            {% endif %}
+    
+            {% if block.settings.quote %}
+              <div class="s-testimonials-slider__quote">
+                {{ block.settings.quote }}
+              </div>
+            {% endif %}
+    
+            {% if block.settings.name %}
+              <div class="s-testimonials-slider__name">
+                {{ block.settings.name }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</s-testimonials-slider>
+
+{% schema %}
+{
+  "name": "Testimonials Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Slider"
+    }
+  ]
+}
+{% endschema %}
