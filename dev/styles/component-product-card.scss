@@ -1,0 +1,167 @@
+.c-product-card{
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  height: 100%;
+  transition: filter 250ms;
+  
+  @media screen and (min-width:768px) {
+    row-gap: 26px;
+  }
+
+  &.is-loading{
+    filter: blur(2px);
+    pointer-events: none;
+  }
+
+  &__top{
+    position: relative;
+  }
+
+  &__image{
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    & > img{
+      aspect-ratio: 1;
+      object-fit: contain;
+      display: block;
+      width: 100%;
+      height: fit-content;
+      transition: transform 400ms;
+    }
+
+    & > img:hover{
+      transform: scale(1.05);
+    }
+  }
+
+  &__bottom{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title{
+    margin: 8px 0 0;
+    display: block;
+
+    color: #2B2424;
+    font-family: var(--font-manrope);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+
+    @media screen and (min-width:768px) {
+      font-size: 22px;
+    }
+  }
+
+  &__vendor{
+    color: #685A5C;
+    font-family: "Tiempos Headline";
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__row{
+    margin: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    
+    @media screen and (min-width:768px) {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__price{
+    color: #685A5C;
+    font-family: var(--font-manrope);
+    font-size: 16.154px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.808px;
+    text-transform: uppercase;
+  }
+
+  &__rating-wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    
+    @media screen and (min-width:768px) {
+      flex-direction: row;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+
+  &__rating-text{
+    color: #8E8385;
+
+    font-family: var(--font-manrope);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+
+  &__button{
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 12px;
+    
+    border-radius: 5px;
+    border: 1px solid #D9D6D6;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #8E8385;
+    text-align: center;
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+
+    transition: background-color 250ms;
+    cursor: pointer;
+    
+    @media screen and (min-width:768px) {
+      margin: 26px 0 0;
+      padding: 16.5px;
+    }
+
+    &:hover{
+      background-color: #D9D6D6;
+    }
+
+    &:disabled{
+      pointer-events: none;
+      opacity: 0.8;
+    }
+  }
+
+  
+}

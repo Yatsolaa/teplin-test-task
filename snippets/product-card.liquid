@@ -1,0 +1,60 @@
+<c-product-card class="c-product-card js-product-card" data-product-handle="{{ product.handle }}">
+  <div class="c-product-card__top">
+    <a href="{{ product.url }}" class="c-product-card__image">
+      <img
+        srcset="
+          {%- if product.width >= 165 -%}{{ product | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if product.width >= 360 -%}{{ product | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if product.width >= 535 -%}{{ product | image_url: width: 535 }} 535w,{%- endif -%}
+          {%- if product.width >= 750 -%}{{ product | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if product.width >= 1070 -%}{{ product | image_url: width: 1070 }} 1070w,{%- endif -%}
+          {%- if product.width >= 1500 -%}{{ product | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {{ product | image_url }} {{ product.width }}w
+        "
+        src="{{ product | image_url: width: 750 }}"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+        alt="{{ product.alt | escape }}"
+        width="{{ product.width }}"
+        height="{{ product.height }}"
+      >
+    </a>
+  </div>
+  <div class="c-product-card__bottom">
+    <div class="c-product-card__info-top">
+      <span class="c-product-card__vendor">
+        {{ product.vendor }}
+      </span>
+
+      <a class="c-product-card__title" href="{{ product.url }}">
+        {{ product.title }}
+      </a>
+
+      <div class="c-product-card__row">
+        <div class="c-product-card__price">
+          {{ product.selected_or_first_available_variant.price | money }}
+        </div>
+
+        <div class="c-product-card__rating-wrapper">
+          {% render 'star-rating', rating: rating %}
+          <span class="c-product-card__rating-text">{{ review_text }}</span>
+        </div>
+      </div>
+    </div>
+
+    <button
+        class="c-product-card__button js-product-card__button"
+        data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        {% unless product.selected_or_first_available_variant.available %}
+          disabled
+        {% endunless %}
+      >
+        <span class="c-product-card__button-text js-product-card__button-text">
+          {% if product.selected_or_first_available_variant.available %}
+            Add to cart
+          {% else %}
+            Sold out
+          {% endif %}
+        </span>
+      </button>
+  </div>
+</c-product-card>

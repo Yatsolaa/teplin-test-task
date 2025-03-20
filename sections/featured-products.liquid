@@ -1,0 +1,100 @@
+{{ 'custom-section-featured-product.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-product-card.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-product-card.js' |  asset_url }}" defer></script>
+
+{% assign products = section.blocks |  where: 'type', 'product'  %}
+
+<section class="s-featured-products">
+  <div class="s-featured-products__container">
+    <div class="s-featured-products__top">
+      {% if section.settings.title != blank %}
+        <h2 class="s-featured-products__title">{{ section.settings.title }}</h2>
+      {% endif %}
+  
+      {% if section.settings.subtitle != blank %}
+        <div class="s-featured-products__subtitle">{{ section.settings.subtitle }}</div>
+      {% endif %}
+  
+      {% if section.settings.button != blank %}
+        <a href="{{ section.settings.button_url }}" class="s-featured-products__button">{{ section.settings.button }}</a>
+      {% endif %}
+    </div>
+
+    {% if products.size > 0 %}
+      <ul class="s-featured-products__products">
+        {% for product in products %}
+          <li class="s-featured-products__product-card">
+            {% render 'product-card', product: product.settings.product, rating: product.settings.rating, review_text: product.settings.review_text  %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Reviews settings"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "unit": "st",
+          "label": "Product stars rating",
+          "default": 4
+        },
+        {
+          "type": "text",
+          "id": "review_text",
+          "label": "Review text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

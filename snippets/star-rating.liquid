@@ -1,0 +1,22 @@
+{% comment %}
+  Usage: 
+  - Include this snippet and pass the rating as a variable.
+  - Example: {% render 'star-rating', rating: 3.5 %}
+{% endcomment %}
+
+<div class="star-rating">
+  {% assign full_stars = rating | floor %}
+  {% assign has_half_star = rating | modulo: 1 %}
+
+  {% for i in (1..5) %}
+    {% assign next_step = full_stars | plus: 1 %}
+
+    {% if i <= full_stars %}
+      {% render 'full-star' %}
+    {% elsif i == next_step and has_half_star >= 0.5 %}
+      {% render 'half-star' %}
+    {% else %}
+      {% render 'empty-star' %}
+    {% endif %}
+  {% endfor %}
+</div>

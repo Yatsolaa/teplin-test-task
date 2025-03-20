@@ -1,0 +1,202 @@
+.c-product-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 16px;
+  height: 100%;
+  -webkit-transition: -webkit-filter 250ms;
+  transition: -webkit-filter 250ms;
+  transition: filter 250ms;
+  transition: filter 250ms, -webkit-filter 250ms;
+}
+@media screen and (min-width: 768px) {
+  .c-product-card {
+    row-gap: 26px;
+  }
+}
+.c-product-card.is-loading {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  pointer-events: none;
+}
+.c-product-card__top {
+  position: relative;
+}
+.c-product-card__image {
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.c-product-card__image > img {
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transition: -webkit-transform 400ms;
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+}
+.c-product-card__image > img:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.c-product-card__bottom {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.c-product-card__title {
+  margin: 8px 0 0;
+  display: block;
+  color: #2B2424;
+  font-family: var(--font-manrope);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  .c-product-card__title {
+    font-size: 22px;
+  }
+}
+.c-product-card__vendor {
+  color: #685A5C;
+  font-family: "Tiempos Headline";
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+.c-product-card__row {
+  margin: 20px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 10px;
+}
+@media screen and (min-width: 768px) {
+  .c-product-card__row {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+.c-product-card__price {
+  color: #685A5C;
+  font-family: var(--font-manrope);
+  font-size: 16.154px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.808px;
+  text-transform: uppercase;
+}
+.c-product-card__rating-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 10px;
+}
+@media screen and (min-width: 768px) {
+  .c-product-card__rating-wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+  }
+}
+.c-product-card__rating-text {
+  color: #8E8385;
+  font-family: var(--font-manrope);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+.c-product-card__button {
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #D9D6D6;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #8E8385;
+  text-align: center;
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  -webkit-transition: background-color 250ms;
+  transition: background-color 250ms;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .c-product-card__button {
+    margin: 26px 0 0;
+    padding: 16.5px;
+  }
+}
+.c-product-card__button:hover {
+  background-color: #D9D6D6;
+}
+.c-product-card__button:disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
