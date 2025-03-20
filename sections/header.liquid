@@ -13,7 +13,9 @@
 {%- endif -%}
 
 {%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+  {% comment %} <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+  {{ 'component-custom-mega-menu.css' |  asset_url |  stylesheet_tag }}
+  <script src="{{ 'component-custom-mega-menu.js' |  asset_url }}" defer></script>
 {%- endif -%}
 
 <style>
@@ -185,7 +187,7 @@
         if section.settings.menu_type_desktop == 'dropdown'
           render 'header-dropdown-menu'
         elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
+          render 'custom-mega-menu', menu: section.settings.menu
         endif
       endif
     %}
